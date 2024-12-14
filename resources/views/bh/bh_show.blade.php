@@ -14,32 +14,30 @@
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
     @endif
+
+    <h1 class="bg-primary-subtle p-4 rounded-4">{{$boardingHouse->name}}</h1>
     <div class="row mb-3">
         <div class="d-flex justify-content-end">
-            <a href="{{route('boarding-houses.create')}}" class="btn btn-primary">Add new boarding house</a>
+            <a href="{{route('rooms.create', [$boardingHouse->id])}}" class="btn btn-primary">Add new room</a>
         </div>
     </div>
     <div class="row">
-        @if (count($boardingHouses)<=0) <h3>No boarding house yet!</h3>
+        @if (count($rooms)<=0) <h3>No rooms yet!</h3>
             @else
-            @foreach ($boardingHouses as $bh)
+            @foreach ($rooms as $room)
             <div class="col-md-3">
                 <div class="card">
-                    <img class="card-img-top img-fluid" src="{{asset('images/photos/'.$bh->photo)}}" alt="">
+                    <img class="card-img-top img-fluid" src="{{asset('images/photos/'.$room->photo)}}" alt="">
                     <div class="card-body">
-                        <h3 class="card-title">{{$bh->name}}</h3>
-                        <h5 class="card-title">Owner: {{$bh->owner->name}}</h5>
+                        <h3 class="card-title">{{$room->name}}</h3>
                         <div>
-                            <img src="{{asset('images/location.jpg')}}" class="icon" alt=""> {{$bh->location}}
+                            Population: 5
                         </div>
                         <div>
-                            Rooms: 5
-                        </div>
-                        <div>
-                            Vacancies: 10
+                            Vacancies: 4
                         </div>
                     </div>
-                    <a href="{{route('boarding-houses.show', [$bh->id])}} " class="btn btn-info">View</a>
+                    <a href="{{route('boarding-houses.show', [$boardingHouse->id])}} " class="btn btn-info">View</a>
                 </div>
             </div>
 
