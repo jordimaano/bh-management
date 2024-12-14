@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,4 +20,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/register/{role}', [RegisterController::class, 'showRegistrationForm'])->name('role.register');
+Route::get('/choose-role', [RegisterController::class, 'chooseRole'])->name('role.choose');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
