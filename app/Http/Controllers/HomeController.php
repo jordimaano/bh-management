@@ -28,7 +28,8 @@ class HomeController extends Controller
 
             $boardingHouses = BoardingHouse::where('owner_id', auth()->user()->id)->get();
             return view('owner_home', compact('boardingHouses'));
+        } else {
+            return redirect()->route('rooms.index');
         }
-        return view('home');
     }
 }
