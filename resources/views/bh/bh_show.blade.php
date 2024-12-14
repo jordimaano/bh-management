@@ -25,16 +25,16 @@
         @if (count($rooms)<=0) <h3>No rooms yet!</h3>
             @else
             @foreach ($rooms as $room)
-            <div class="col-md-3">
+            <div class="col-md-3 ">
                 <div class="card">
                     <img class="card-img-top img-fluid" src="{{asset('images/photos/'.$room->photo)}}" alt="">
                     <div class="card-body">
                         <h3 class="card-title">{{$room->name}}</h3>
                         <div>
-                            Population: 5
+                            Population: {{$room->getpopulation()}}
                         </div>
                         <div>
-                            Vacancies: 4
+                            Vacancies: {{$room->capacity - $room->getpopulation()}}
                         </div>
                     </div>
                     <a href="{{route('boarding-houses.show', [$boardingHouse->id])}} " class="btn btn-info">View</a>

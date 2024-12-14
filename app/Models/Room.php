@@ -32,4 +32,9 @@ class Room extends Model
         $boarder = Boarder::where('room_id', $this->id)->get();
         return count($boarder);
     }
+    public function getVacancies()
+    {
+        $boarder = Boarder::where('room_id', $this->id)->get();
+        return $this->capacity - count($boarder);
+    }
 }

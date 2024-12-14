@@ -33,10 +33,10 @@
                             <img src="{{asset('images/location.jpg')}}" class="icon" alt=""> {{$bh->location}}
                         </div>
                         <div>
-                            Rooms: 5
+                            Rooms: {{count($bh->room)}}
                         </div>
                         <div>
-                            Vacancies: 10
+                            Vacancies: {{$bh->vacancies()}}
                         </div>
                     </div>
                     <a href="{{route('boarding-houses.show', [$bh->id])}} " class="btn btn-info">View</a>
