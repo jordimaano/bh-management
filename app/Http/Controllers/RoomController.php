@@ -11,7 +11,17 @@ class RoomController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index() {}
+    public function index()
+    {
+        $rooms = Room::withCount(['boarders as vacancies' => function ($query) {
+            $query->whereNotNull('room_id');
+        }])->get()->map(function ($room) {
+            $room->vacancies = $room->capacity - ($room->vacancies ?? 0);
+            return $room;
+        });
+
+        return view('rooms.rooms_all', compact('rooms'));
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -58,7 +68,7 @@ class RoomController extends Controller
      */
     public function show(Room $room)
     {
-        //
+        return view('rooms.room', compact('room'));
     }
 
     /**

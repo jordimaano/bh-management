@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\BoarderController;
 use App\Http\Controllers\BoardingHouseController;
 use App\Http\Controllers\RoomController;
 use Illuminate\Support\Facades\Route;
@@ -41,8 +42,17 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/rooms', [RoomController::class, 'index'])->name('rooms.index'); // List all
     Route::get('/boarding-houses/{boardingHouse}/rooms/create', [RoomController::class, 'create'])->name('rooms.create'); // Show form to create
     Route::post('/rooms/store', [RoomController::class, 'store'])->name('rooms.store'); // Save new record
-    Route::get('/rooms/{boardingHouse}', [RoomController::class, 'show'])->name('rooms.show'); // Show details
-    Route::get('/rooms/{id}/edit', [RoomController::class, 'edit'])->name('rooms.edit'); // Show form to edit
-    Route::put('/rooms/{id}', [RoomController::class, 'update'])->name('rooms.update'); // Update record
-    Route::delete('/rooms/{id}', [RoomController::class, 'destroy'])->name('rooms.destroy'); // Delete record
+    Route::get('/rooms/{room}', [RoomController::class, 'show'])->name('rooms.show'); // Show details
+    Route::get('/rooms/{room}/edit', [RoomController::class, 'edit'])->name('rooms.edit'); // Show form to edit
+    Route::put('/rooms/{room}', [RoomController::class, 'update'])->name('rooms.update'); // Update record
+    Route::delete('/rooms/{room}', [RoomController::class, 'destroy'])->name('rooms.destroy'); // Delete record
+
+    //boarders
+    Route::get('/boarders', [BoarderController::class, 'index'])->name('boarders.index'); // List all
+    Route::get('/boarding-houses/{boardingHouse}/boarders/create', [BoarderController::class, 'create'])->name('boarders.create'); // Show form to create
+    Route::post('/boarders/store', [BoarderController::class, 'store'])->name('boarders.store'); // Save new record
+    Route::get('/boarders', [BoarderController::class, 'show'])->name('boarders.show'); // Show details
+    Route::get('/boarders/{room}/edit', [BoarderController::class, 'edit'])->name('boarders.edit'); // Show form to edit
+    Route::put('/boarders/{room}', [BoarderController::class, 'update'])->name('boarders.update'); // Update record
+    Route::delete('/boarders/{room}', [BoarderController::class, 'destroy'])->name('boarders.destroy'); // Delete record
 });
