@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BoardingHouse;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,11 @@ class HomeController extends Controller
      */
     public function index()
     {
+        if (auth()->user()->role == 'owner') {
+
+            $boardingHouses = BoardingHouse::where('owner_id', auth()->user()->id)->get();
+            return view('owner_home', compact('boardingHouses'));
+        }
         return view('home');
     }
 }
