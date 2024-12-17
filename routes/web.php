@@ -33,6 +33,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/boarding-houses/create', [BoardingHouseController::class, 'create'])->name('boarding-houses.create'); // Show form to create
     Route::post('/boarding-houses', [BoardingHouseController::class, 'store'])->name('boarding-houses.store'); // Save new record
     Route::get('/boarding-houses/{boardingHouse}', [BoardingHouseController::class, 'show'])->name('boarding-houses.show'); // Show details
+    Route::get('/boarding-houses/{boardingHouse}/edit', [BoardingHouseController::class, 'edit'])->name('boarding-houses.edit'); // Show form to edit
+    Route::post('/boarding-houses/{boardingHouse}', [BoardingHouseController::class, 'update'])->name('boarding-houses.update'); // Update record
+    Route::delete('/boarding-houses/{id}', [BoardingHouseController::class, 'destroy'])->name('boarding-houses.destroy'); // Delete record
 
     //rooms
     Route::get('/rooms', [RoomController::class, 'index'])->name('rooms.index'); // List all

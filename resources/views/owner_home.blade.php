@@ -39,7 +39,8 @@
                             Vacancies: {{$bh->vacancies()}}
                         </div>
                     </div>
-                    <a href="{{route('boarding-houses.show', [$bh->id])}} " class="btn btn-info">View</a>
+                    <a href="{{route('boarding-houses.show', [$bh->id])}} " class="btn btn-info m-2">View</a>
+                    <a href="{{route('boarding-houses.edit', [$bh->id])}} " class="btn btn-warning m-2">Edit</a>
                 </div>
             </div>
 
