@@ -105,9 +105,8 @@ class BoardingHouseController extends Controller
      */
     public function destroy(BoardingHouse $boardingHouse)
     {
-        // dd($boardingHouse->photo);
         Storage::delete('images/photos' . $boardingHouse->photo);
-        // $boardingHouse->delete();
+        $boardingHouse->delete();
         return redirect()->back()->with('success', 'Boarding house deleted successfully!');
     }
 }
