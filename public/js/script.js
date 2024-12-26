@@ -12,9 +12,4 @@
     console.log(message);
   }
 
-  let confirmDelete = (message, form) => {
-    if (confirm(message) == true) {
-        document.getElementById(form).submit();
-    }
-  }
 });
