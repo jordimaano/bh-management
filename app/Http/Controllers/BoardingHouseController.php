@@ -5,9 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\BoardingHouse;
 use App\Models\Room;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\File;
-
-use function PHPUnit\Framework\fileExists;
+use Illuminate\Support\Facades\Storage;
 
 class BoardingHouseController extends Controller
 {
@@ -107,10 +105,9 @@ class BoardingHouseController extends Controller
      */
     public function destroy(BoardingHouse $boardingHouse)
     {
-        if (fileExists(public_path('images/photos/' . $boardingHouse->photo))) {
-            File::delete(public_path('images/photos' . $boardingHouse->photo));
-        }
-        $boardingHouse->delete();
+        // dd($boardingHouse->photo);
+        Storage::delete('images/photos' . $boardingHouse->photo);
+        // $boardingHouse->delete();
         return redirect()->back()->with('success', 'Boarding house deleted successfully!');
     }
 }
