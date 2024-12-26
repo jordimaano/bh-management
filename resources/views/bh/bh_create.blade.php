@@ -6,7 +6,8 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    <form action="{{route('boarding-houses.store')}}" method="post" enctype="multipart/form-data">
+                    <form runat="server" action="{{route('boarding-houses.store')}}" method="post"
+                        enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3 px-3">
                             <label for="name">Name</label>
@@ -30,6 +31,9 @@
                             @enderror
                         </div>
                         <div class="mb-3 px-3">
+                            <div class="text-center">
+                                <img id="uploadedPhotoDisplay" src="#" alt="boarding house photo" class="img-fluid">
+                            </div>
                             <label for="photo">Photo</label>
                             <input id="photo" type="file" class="form-control @error('photo') is-invalid @enderror"
                                 name="photo" required>

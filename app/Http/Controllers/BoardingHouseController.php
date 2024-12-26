@@ -104,6 +104,7 @@ class BoardingHouseController extends Controller
      */
     public function destroy(BoardingHouse $boardingHouse)
     {
-        //
+        $boardingHouse->delete();
+        return redirect()->back()->with('success', 'Boarding house deleted successfully!');
     }
 }

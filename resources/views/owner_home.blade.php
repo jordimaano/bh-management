@@ -41,6 +41,16 @@
                     </div>
                     <a href="{{route('boarding-houses.show', [$bh->id])}} " class="btn btn-info m-2">View</a>
                     <a href="{{route('boarding-houses.edit', [$bh->id])}} " class="btn btn-warning m-2">Edit</a>
+                    <div class="w-100 p-2">
+                        <form id="deleteForm{{$bh->id}}" action="{{route('boarding-houses.destroy', [$bh->id])}}"
+                            method="post">
+                            @csrf
+                            @method('delete')
+                            <button type="button"
+                                onclick="confirmDelete('Are you sure you want to delete this boarding house?', 'deleteForm{{$bh->id}}')"
+                                class="btn btn-danger w-100">Delete</button>
+                        </form>
+                    </div>
                 </div>
             </div>
 
@@ -49,4 +59,11 @@
 
     </div>
 </div>
+<script>
+    let confirmDelete = (message, form) => {
+    if (confirm(message) == true) {
+        document.getElementById(form).submit();
+    }
+  }
+</script>
 @endsection
