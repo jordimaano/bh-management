@@ -27,3 +27,7 @@ height: 300px;
     width: fit-content; 
     margin: auto;
 }
+.full-screen-height {
+    /* 93 instead of 100 because of the height of the navbar */
+    min-height: 93svh;
+}

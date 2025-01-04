@@ -22,9 +22,17 @@
                                     @csrf
                                     <input type="hidden" name="room" value="{{$room->id}}">
                                     <input type="hidden" name="boarder" value="{{auth()->user()->id}}">
+                                    {{-- check if user is not owner --}}
                                     @if (auth()->user()->role!= 'owner')
+
+                                    {{-- check if the user is already registered as boarder --}}
+                                    @if (auth()->user()->room())
+
+                                    {{-- check if user has already applied for that room --}}
                                     @if (auth()->user()->room()->id == $room->id)
+
                                     <button class="btn btn-primary" disabled>Applied</button>
+                                    @endif
                                     @else
                                     <button class="btn btn-primary">Apply</button>
                                     @endif

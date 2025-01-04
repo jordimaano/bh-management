@@ -10,6 +10,23 @@ class BoarderController extends Controller
     /**
      * Display a listing of the resource.
      */
+    public function acceptOrDecline(Request $request)
+    {
+        $message = "";
+        //1 = accept
+        //0 = decline
+        if ($request->decision == 1) {
+            $boarder = Boarder::where('id', $request->boarder)->first();
+            $boarder->is_confirmed = 1;
+            $boarder->save();
+            $message = "Request accepted!";
+        } else {
+            $boarder = Boarder::where('id', $request->boarder)->first();
+            $boarder->delete();
+            $message = "Request declined!";
+        }
+        return redirect()->back()->with("success", $message);
+    }
     public function index()
     {
         //

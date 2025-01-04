@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Boarder;
 use App\Models\BoardingHouse;
 use App\Models\Room;
 use Illuminate\Http\Request;
@@ -60,8 +61,9 @@ class BoardingHouseController extends Controller
      */
     public function show(BoardingHouse $boardingHouse)
     {
-        $rooms = Room::where('boarding_house_id', $boardingHouse->id)->get();
-        return view('bh.bh_show', compact('boardingHouse', 'rooms'));
+        $room = Room::where('boarding_house_id', $boardingHouse->id)->first();
+        $boarders = Boarder::where('room_id', '=', $room->id,)->get();
+        return view('bh.bh_room_details', compact('boardingHouse', 'room', 'boarders'));
     }
 
     /**
