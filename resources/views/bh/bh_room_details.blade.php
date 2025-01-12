@@ -28,6 +28,7 @@
                         <tr>
                             <th>Name</th>
                             <th>Phone</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -36,6 +37,10 @@
                         <tr>
                             <td>{{$boarder->user->name}}</td>
                             <td>{{$boarder->user->phone}}</td>
+                            <td>
+                                <a href="{{route('boarders.profile', [$boarder->id])}}" class="btn btn-primary">View
+                                    details</a>
+                            </td>
                         </tr>
                         @endif
                         @endforeach

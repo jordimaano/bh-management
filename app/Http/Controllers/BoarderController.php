@@ -27,6 +27,10 @@ class BoarderController extends Controller
         }
         return redirect()->back()->with("success", $message);
     }
+    public function boarderProfile(Boarder $boarder)
+    {
+        return view('boarders.boarder_profile', compact('boarder'));
+    }
     public function index()
     {
         //

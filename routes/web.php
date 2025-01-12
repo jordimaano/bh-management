@@ -48,8 +48,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/boarding-houses/{boardingHouse}/boarders/create', [BoarderController::class, 'create'])->name('boarders.create'); // Show form to create
     Route::post('/boarders/store', [BoarderController::class, 'store'])->name('boarders.store'); // Save new record
     Route::get('/boarders', [BoarderController::class, 'show'])->name('boarders.show'); // Show details
+    //boarder profile
+    Route::get('/boarders/{boarder}', [BoarderController::class, 'boarderProfile'])->name('boarders.profile'); // List all
 
     //accept or decline boarders
     Route::post('/boarders/decision', [BoarderController::class, 'acceptOrDecline'])->name('boarders.decision')->middleware('owner'); // Show details
+
 
 });

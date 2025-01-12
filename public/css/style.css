@@ -31,3 +31,9 @@ height: 300px;
     /* 93 instead of 100 because of the height of the navbar */
     min-height: 93svh;
 }
+.profile-photo {
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+}
