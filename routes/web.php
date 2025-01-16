@@ -50,6 +50,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/boarders', [BoarderController::class, 'show'])->name('boarders.show'); // Show details
     //boarder profile
     Route::get('/boarders/{boarder}', [BoarderController::class, 'boarderProfile'])->name('boarders.profile'); // List all
+    Route::post('/boarders/print', [BoarderController::class, 'saveASPDF'])->name('boarders.print'); // List all
 
     //accept or decline boarders
     Route::post('/boarders/decision', [BoarderController::class, 'acceptOrDecline'])->name('boarders.decision')->middleware('owner'); // Show details

@@ -56,6 +56,15 @@
                         <hr class="border border-light border-2 opacity-50 mt-3">
                         <div class="row mt-2">
                             <div>
+                                <form action="{{route('boarders.print')}}" method="post">
+                                    @csrf
+                                    <input type="hidden" value="{{url()->current()}}" name="url">
+                                    <button class="btn btn-primary" type="submit">Print</button>
+                                </form>
+                                {{-- <a href="{{route('boarders.print', [$boarder->id])}}"
+                                    class="btn btn-primary">Print</a> --}}
+                            </div>
+                            <div>
                                 Payment
                             </div>
                             <div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Boarder;
 use Illuminate\Http\Request;
+use Spatie\Browsershot\Browsershot;
 
 class BoarderController extends Controller
 {
@@ -31,6 +32,14 @@ class BoarderController extends Controller
     {
         return view('boarders.boarder_profile', compact('boarder'));
     }
+    public function saveAsPDF(Request $request)
+    {
+        // dd($request->all());
+        Browsershot::url($request->url)->noSandbox()->save('example.pdf');
+    }
+    // an image will be saved
+
+    public function saveToPDF(Request $request) {}
     public function index()
     {
         //
