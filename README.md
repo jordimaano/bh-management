@@ -22,9 +22,34 @@ Note: This is still in development stage, and there are many incomplete parts ye
 ### Installation Steps
 
 1. Clone the repository
-2. Install PHP Dependencies (composer install)
+   in terminal:
+   git clone https://github.com/jordimaano/bh-management.git
+2. Install PHP Dependencies
+   in terminal:
+   composer install
 3. Set Up Environment Variables
-4. Set up database (php artisan migrate)
-5. Install nodes dependencies (npm run dev)
-6. Build assets (npm run dev)
-7. Serve the application (php artisan serve)
+   DB_CONNECTION=mysql
+   DB_HOST=127.0.0.1
+   DB_PORT=3306
+   DB_DATABASE=your_database_name
+   DB_USERNAME=your_database_user
+   DB_PASSWORD=your_database_password
+4. Set up database
+   in terminal:
+   php artisan migrate
+5. Install nodes dependencies
+   in terminal: npm run install
+6. Build assets
+   in terminal:
+   npm run dev
+7. Serve the application
+   in terminal:
+   php artisan serve
+
+### Intallation Errors
+
+When errors occurred during installation, you may:
+
+1. Check for you PHP version, should be 8.1.10
+2. Try configuring the env file
+3. Setup the database manually for database-related errors
