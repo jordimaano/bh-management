@@ -10,13 +10,8 @@ use Illuminate\Support\Facades\Storage;
 
 class BoardingHouseController extends Controller
 {
-    /**
-     * Display a listing of the resource.
+    /** * Display a listing of the resource.
      */
-    public function index()
-    {
-        //
-    }
 
     /**
      * Show the form for creating a new resource.
@@ -110,5 +105,9 @@ class BoardingHouseController extends Controller
         Storage::delete('images/photos' . $boardingHouse->photo);
         $boardingHouse->delete();
         return redirect()->back()->with('success', 'Boarding house deleted successfully!');
+    }
+    public function bhStatus()
+    {
+        return view('bh.bh_status');
     }
 }

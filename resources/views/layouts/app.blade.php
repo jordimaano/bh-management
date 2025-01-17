@@ -15,9 +15,11 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
+
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <script defer src="{{asset('js/script.js')}}"></script>
+    <script defer src="{{asset('chartjs/chart.js')}}"></script>
 
 
 </head>
@@ -41,6 +43,13 @@
                         <li class="nav-item">
                             <a href="{{route('rooms.index')}}" class="nav-link">Rooms</a>
                         </li>
+                        @auth
+                        @if (auth()->user()->role == 'owner')
+                        <li>
+                            <a href="{{route('boarding-houses.status')}}" class="nav-link">My Boarding House</a>
+                        </li>
+                        @endif
+                        @endauth
                     </ul>
 
                     <!-- Right Side Of Navbar -->

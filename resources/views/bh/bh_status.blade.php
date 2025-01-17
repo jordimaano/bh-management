@@ -1,19 +1,14 @@
-  document.addEventListener("DOMContentLoaded", () => {
-    const uploadedPhotoDisplay = document.querySelector("#uploadedPhotoDisplay")
-    photo.onchange = evt => {
-    const [file] = photo.files
-    if (file) {
-      uploadedPhotoDisplay.src = URL.createObjectURL(file)
-    }
-  }
+@extends('layouts.app')
 
-  //prevent user from accidental clicks
-  let print = (message) => {
-    console.log(message);
-  }
-
-});
-const ctx = document.getElementById('myChart').getContext('2d');
+@section('content')
+<div class="container-fluid">
+    <h1>;lkajsdf;lkj</h1>
+    <div style="width: 600px; margin: 50px auto;">
+        <canvas id="myChart"></canvas>
+    </div>
+</div> @endsection
+<script>
+    const ctx = document.getElementById('myChart').getContext('2d');
 
 // Create the chart
 const myChart = new Chart(ctx, {
@@ -49,3 +44,4 @@ const myChart = new Chart(ctx, {
         }
     }
 });
+</script>

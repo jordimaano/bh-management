@@ -36,6 +36,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/boarding-houses/{boardingHouse}/edit', [BoardingHouseController::class, 'edit'])->name('boarding-houses.edit')->middleware('owner'); // Show form to edit
     Route::post('/boarding-houses/{boardingHouse}', [BoardingHouseController::class, 'update'])->name('boarding-houses.update')->middleware('owner'); // Update record
     Route::delete('/boarding-houses/{boardingHouse}', [BoardingHouseController::class, 'destroy'])->name('boarding-houses.destroy')->middleware('owner'); // Delete record
+    Route::get('/bhstatus', [BoardingHouseController::class, 'bhStatus'])->name('boarding-houses.status');
 
     //rooms
     Route::get('/rooms', [RoomController::class, 'index'])->name('rooms.index'); // List all
