@@ -1,16 +1,16 @@
 @extends('layouts.app')
-
 @section('content')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js"
+    integrity="sha512-L0Shl7nXXzIlBSUUPpxrokqq4ojqgZFQczTYlGjzONGTDAcLremjwaWv5A+EDLnxhQzY5xUZPWLOLqYRkY0Cbw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <div class="container-fluid">
-    <h1>;lkajsdf;lkj</h1>
     <div style="width: 600px; margin: 50px auto;">
         <canvas id="myChart"></canvas>
     </div>
-</div> @endsection
-<script>
+</div>
+{{-- <script>
     const ctx = document.getElementById('myChart').getContext('2d');
-
-// Create the chart
+    console.log(ctx);
 const myChart = new Chart(ctx, {
     type: 'bar', // Chart type: bar, line, pie, etc.
     data: {
@@ -44,4 +44,5 @@ const myChart = new Chart(ctx, {
         }
     }
 });
-</script>
+</script> --}}
+@endsection
